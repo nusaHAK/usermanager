@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Liste aller registrierten Benutzer</h1>
+    <p>
+        <a th:href="@{/new_user}">neuen User anlegen</a>
+    </p>
     <table border="1">
         <thead>
             <tr>
@@ -21,10 +24,10 @@
                 <td th:text="${user.id}">User-Id</td>
                 <td th:text="${user.firstname}">Vorname</td>
                 <td th:text="${user.lastname}">Nachname</td>
-                <td>
-                    <a th:href="@{'/edit_user/' + ${user.id}}">Bearbeiten</a>
-                    <a th:href="@{'/delete_user/' + ${user.id}}">Löschen</a>
-                </td> 
+                <td><a th:href="@{'/edit_user/' + ${user.id}}">Bearbeiten</a>
+                    <a th:href="@{/delete_user/{id}(id=${user.id})}" 
+                    onclick="return confirm('Möchtest du diesen Benutzer wirklich löschen?')">Löschen</a>
+                </td>
             </tr>
 
         </tbody>

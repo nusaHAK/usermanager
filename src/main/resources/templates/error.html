@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fehler</title>
+    <title>Error</title>
 </head>
 <body>
-    <h1>Der neue User konnte nicht gespeichert werden.</h1>
+    <div align="center">
+        <h1>Der Benutzer konnte nicht gespeichert werden.</h1>
+    </div>
+    <div>
+        <h1>Es ist ein Fehler aufgetreten!</h1>
+        <p th:if="${error}" th:text="${error}">Leider gab es 
+            einen Fehler bei der Verarbeitung Ihrer Anfrage.</p>
+        <p th:if="${message}" th:text="${message}">Etwas ist schiefgelaufen. 
+            Bitte versuchen Sie es später noch einmal.</p>
+        <p>Zurück zur <a th:href="@{/all_users}">Startseite</a>.</p>
+    </div>
 </body>
 </html>

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speicherung in der DB</title>
+    <title>Erfolgreich</title>
 </head>
 <body>
-    <h1>Der neue User(<b th:text="${firstname}"></b> <b th:text="${lastname}"></b>) wurde in der DB gespeichert.</h1>
+    <div align="center">
+        <h1>Der Benutzer <span th:text="${user.firstname} +
+         ' ' + ${user.lastname}" /> wurde gespeichert/aktualisiert.</h1>
+    </div>
+    <form th:action="@{/all_users}" method="get">
+        <br>
+        <button type="submit">alle User anzeigen</button>
+    </form>
 </body>
 </html>
