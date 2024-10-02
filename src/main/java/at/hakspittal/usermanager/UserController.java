@@ -28,7 +28,7 @@ public class UserController {
         // in der DB zu löschen
         service.delete(id);
 
-        return "redirect:/users";
+        return "redirect:/all_users";
     }
     
 
@@ -78,7 +78,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/users")
+    @GetMapping("/all_users")
     public String showAllUsers(Model model) {
 
         //Liste aller User aus der DB laden
