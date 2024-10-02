@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Neuen Benutzer erstellen</title>
+</head>
+<body>
+    <h1>Neuen Benutzer erstellen</h1>
+    <form th:action="@{/save_user}" th:object="${user}" method="post">
+        <!-- Das Objekt user wird mit den neuen/alten Werten befüllt.
+             Vorsicht: der Primärschlüssel geht verloren, wenn der Wert
+                       nicht explizit im Formular gespeichert wurde.
+            Deshalb muss die id auch als Formularfeld verarbeitet werden.
+                     -->
+        <div>
+            <input type="hidden" th:field="*{id}" />
+        </div>   
+        <div>
+            <label for="firstname">Vorname:</label>
+            <input type="text" id="firstname" th:field="*{firstname}" required/>
+        </div>
+        <div>
+            <label for="lastname">Nachname:</label>
+            <input type="text" id="lastname" th:field="*{lastname}" required/>
+        </div>
+        <div>
+            <button type="submit">Speichern</button>
+        </div>
+    </form>
+</body>
+</html>
